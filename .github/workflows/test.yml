@@ -1,0 +1,21 @@
+name: test
+on: [push, pull_request]
+
+jobs:
+  test-run:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux
+      options: --privileged
+      volumes:
+        - /sys/fs/cgroup/systemd/docker:/sys/fs/cgroup/systemd/docker
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Arch Linux package
+        run: ./run.sh
+        env:
+#        uses: FFY00/build-arch-package@master
+#        with:
+          INPUT_PKGBUILD: $GITHUB_WORKSPACE/.github/workflows/PKGBUILD
+          INPUT_OUTDIR: $HOME/arch-packages
+
