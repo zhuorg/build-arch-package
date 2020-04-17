@@ -8,7 +8,7 @@ jobs:
       image: archlinux
       options: --privileged
       volumes:
-        - /sys/fs/cgroup/systemd:/sys/fs/cgroup/systemd
+        - /sys/fs/cgroup/systemd/docker:/sys/fs/cgroup/systemd/docker
     steps:
       - uses: actions/checkout@v2
       - name: Build Arch Linux package
