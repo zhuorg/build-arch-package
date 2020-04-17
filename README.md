@@ -1,4 +1,4 @@
-# Build Arch Linux package Github Action
+# Build Arch Linux package Github Action 1
 
 ```yaml
 - name: Build Arch Linux package
